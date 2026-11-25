@@ -1,0 +1,11 @@
+
+test_destinatario_vazio (test_notificacoes.TestSistemaNotificacoes.test_destinatario_vazio) ... ok
+test_envio_email (test_notificacoes.TestSistemaNotificacoes.test_envio_email) ... ok
+test_envio_push (test_notificacoes.TestSistemaNotificacoes.test_envio_push) ... ok
+test_envio_sms (test_notificacoes.TestSistemaNotificacoes.test_envio_sms) ... ok
+test_mensagem_vazia (test_notificacoes.TestSistemaNotificacoes.test_mensagem_vazia) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

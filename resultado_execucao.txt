@@ -1,0 +1,4 @@
+=== SISTEMA DE NOTIFICACOES ===
+[E-MAIL] Para: usuario@exemplo.com | Mensagem: Seu cadastro foi confirmado.
+[SMS] Para: +55 88 99999-0000 | Mensagem: Seu codigo de acesso e 123456.
+[PUSH] Dispositivo: dispositivo-001 | Mensagem: Voce tem uma nova atualizacao.

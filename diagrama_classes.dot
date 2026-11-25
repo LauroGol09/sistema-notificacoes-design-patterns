@@ -1,0 +1,25 @@
+digraph UML {
+  graph [rankdir=TB, splines=ortho, nodesep=0.35, ranksep=0.55, bgcolor="white", pad=0.25, fontname="DejaVu Sans"];
+  node [shape=plain, fontname="DejaVu Sans"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#34495e", arrowsize=0.8];
+  N [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+    <TR><TD BGCOLOR="#DCE8F5"><B>Notificacao</B></TD></TR><HR/>
+    <TR><TD ALIGN="LEFT">- destinatario: str</TD></TR><TR><TD ALIGN="LEFT">- mensagem: str</TD></TR><TR><TD ALIGN="LEFT">- criado_em: datetime</TD></TR><HR/>
+    <TR><TD ALIGN="LEFT">+ criar(destinatario: str, mensagem: str): Notificacao</TD></TR></TABLE> >];
+  S [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+    <TR><TD BGCOLOR="#DDF1E2"><I>&lt;&lt;interface&gt;&gt;</I><BR/><B>CanalEnvio</B></TD></TR><HR/>
+    <TR><TD ALIGN="LEFT">+ enviar(n: Notificacao): str</TD></TR></TABLE> >];
+  E [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EEF3F8"><B>EnvioEmail</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ enviar(n): str</TD></TR></TABLE> >];
+  M [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EEF3F8"><B>EnvioSMS</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ enviar(n): str</TD></TR></TABLE> >];
+  P [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EEF3F8"><B>EnvioPush</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ enviar(n): str</TD></TR></TABLE> >];
+  C [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#DCE8F5"><I>&lt;&lt;abstract&gt;&gt;</I><BR/><B>CriadorNotificador</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ criar_canal(): CanalEnvio</TD></TR><TR><TD ALIGN="LEFT">+ notificar(destinatario, mensagem): str</TD></TR></TABLE> >];
+  CE [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EEF3F8"><B>CriadorEmail</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ criar_canal(): CanalEnvio</TD></TR></TABLE> >];
+  CM [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EEF3F8"><B>CriadorSMS</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ criar_canal(): CanalEnvio</TD></TR></TABLE> >];
+  CP [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6"><TR><TD BGCOLOR="#EEF3F8"><B>CriadorPush</B></TD></TR><HR/><TR><TD ALIGN="LEFT">+ criar_canal(): CanalEnvio</TD></TR></TABLE> >];
+  {rank=same; S; C}
+  {rank=same; E; M; P; CE; CM; CP}
+  N -> S [label=" parametro de enviar", style=dashed, arrowhead=vee];
+  E -> S [arrowhead=empty]; M -> S [arrowhead=empty]; P -> S [arrowhead=empty];
+  CE -> C [arrowhead=empty]; CM -> C [arrowhead=empty]; CP -> C [arrowhead=empty];
+  C -> S [label=" cria / utiliza", style=dashed, arrowhead=vee, constraint=false];
+}
