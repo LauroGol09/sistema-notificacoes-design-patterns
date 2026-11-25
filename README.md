@@ -38,20 +38,3 @@ sistema_notificacoes/
     |-- diagrama_classes.png
     `-- diagrama_sequencia.png
 ```
-
-## Limites da prova de conceito
-O programa simula o envio e imprime a mensagem no console. Ele **nao** realiza entrega real por SMTP, operadora de SMS ou servico de notificacoes Push. Para uso real, seria necessario integrar provedores, credenciais, tratamento de falhas e politicas de seguranca.
-
-## Publicar no GitHub
-1. Crie um repositorio vazio com o nome `sistema-notificacoes-design-patterns`.
-2. No terminal, dentro desta pasta, execute os comandos abaixo, substituindo `SEU-USUARIO` pelo seu usuario real do GitHub:
-
-```bash
-git init
-git add .
-git commit -m "Projeto Sistema de Notificacoes"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/sistema-notificacoes-design-patterns.git
-git push -u origin main
-```
-3. Copie a URL real do repositorio e substitua o campo indicado na ultima secao do PDF.
